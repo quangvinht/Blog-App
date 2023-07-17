@@ -1,0 +1,28 @@
+<div
+  (click)="handleIncrementView()"
+  [routerLink]="['/post', postData.id]"
+  class="card shadow-effect card-post"
+  *ngIf="postData"
+>
+  <img [src]="postData?.postImgPath" alt="" class="card-img-top" />
+  <div class="card-body">
+    <small class="bg-light text-danger text-center">{{
+      postData?.category?.category
+    }}</small>
+    <small
+      class="bg-light ml-3 text-success text-center"
+      *ngIf="postData?.isFeatured"
+      >Featured</small
+    >
+    <small class="bg-light ml-3 text-info text-center"
+      >View - {{ postData?.views }}</small
+    >
+    <h5 class="mt-1">{{ postData?.title }}</h5>
+    <p class="">
+      {{ postData?.excerpt }}
+    </p>
+    <small class="bg-light ml-3 text-warning text-center"
+      >LAST UPDATE - {{ postData?.createdAt }}
+    </small>
+  </div>
+</div>

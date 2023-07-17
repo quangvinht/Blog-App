@@ -1,0 +1,15 @@
+.card {
+  background-color: var(--secondary-color);
+}
+.form-sub {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+input[type="text"],
+input[type="email"] {
+}
+
+.subs-text {
+  width: 500px;
+}

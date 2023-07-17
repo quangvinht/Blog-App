@@ -1,0 +1,7 @@
+small:not(:first-child) {
+  margin-left: 1rem;
+}
+.card-post {
+  margin-top: 5px;
+  min-height: 500px;
+}

@@ -1,0 +1,68 @@
+<div class="card shadow-effect">
+  <div class="card-body">
+    <div class="text-center mb-5 mt-3">
+      <h3>SUBSCRIPTIONS FORM</h3>
+      <p class="m-auto subs-text mb-2">Let subscription for more information</p>
+
+      <div *ngIf="isDuplicateEmail" class="alert alert-danger mt-3">
+        Email is Already in use
+      </div>
+      <div *ngIf="isSub" class="alert alert-info mt-3">
+        Thank for subscribing...
+      </div>
+      <form
+        (ngSubmit)="handleSubscriptionFormSubmit(subForm.value)"
+        #subForm="ngForm"
+        class="form-inline mb-5 mt-5 form-sub"
+      >
+        <div class="form-group col-md-5">
+          <input
+            type="text"
+            class="form-control mb-2"
+            placeholder="Your name"
+            name="name"
+            ngModel
+            required
+            #Name="ngModel"
+            [ngClass]="{
+              'is-invalid': Name.touched && Name.invalid
+            }"
+          />
+          <div *ngIf="Name.touched && Name.invalid" class="text-danger">
+            <div *ngIf="Name.errors?. ['required']">Name is required</div>
+          </div>
+        </div>
+
+        <div class="form-group col-md-5">
+          <input
+            type="email"
+            class="form-control mb-2"
+            placeholder="Your email"
+            name="email"
+            ngModel
+            required
+            email
+            #Email="ngModel"
+            [ngClass]="{
+              'is-invalid': Email.touched && Email.invalid
+            }"
+          />
+          <div *ngIf="Email.touched && Email.invalid" class="text-danger">
+            <div *ngIf="Email.errors?. ['required']">Email is required</div>
+            <div *ngIf="Email.errors?. ['email']">
+              Please enter a valid email address
+            </div>
+          </div>
+        </div>
+        <div class="col-md-2">
+          <button
+            [disabled]="subForm.invalid"
+            class="btn btn-info btn-block btn-theme"
+          >
+            SUBSCRIBE
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
