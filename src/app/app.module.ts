@@ -29,7 +29,7 @@ import {
 } from '@angular/fire/analytics';
 import { FormsModule } from '@angular/forms';
 import { DateStampPipe } from './date-stamp.pipe';
-
+import { NgxPaginationModule } from 'ngx-pagination';
 @NgModule({
   declarations: [
     AppComponent,
@@ -56,6 +56,7 @@ import { DateStampPipe } from './date-stamp.pipe';
     provideFirestore(() => getFirestore()),
 
     FormsModule,
+    NgxPaginationModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
