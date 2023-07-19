@@ -12,10 +12,10 @@ export class SubscriptionFormComponent {
   isSub: boolean = false;
   constructor(private subService: SubsrcibersService) {}
 
-  handleSubscriptionFormSubmit(subFormValue: any) {
+  handleSubscriptionFormSubmit(subForm: any) {
     const subData: Sub = {
-      name: subFormValue.name,
-      email: subFormValue.email,
+      name: subForm.value.name,
+      email: subForm.value.email,
     };
     this.isDuplicateEmail = this.subService.addSubs(subData);
     if (this.isDuplicateEmail) {
@@ -23,6 +23,6 @@ export class SubscriptionFormComponent {
     } else {
       this.isSub = true;
     }
-    console.log(this.isSub);
+    subForm.reset();
   }
 }
